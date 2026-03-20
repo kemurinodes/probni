@@ -1,0 +1,376 @@
+/* styles.css */
+:root {
+    --primary-color: #2c2c2c;
+    --secondary-color: #6b1212;
+    --header-footer-color: #520000;
+    --bg-color: #0f0f0f;
+    --text-color: #ffffff;
+    --font-size-base: 16px;
+    --font-main: 'Roboto', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    background-color: var(--header-footer-color);
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav-menu li {
+    margin-left: 2rem;
+}
+
+.nav-menu a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover,
+.nav-menu a:focus {
+    color: var(--secondary-color);
+}
+
+/* Main */
+.main-content {
+    margin-top: 80px;
+    padding: 2rem 0;
+}
+
+.hero {
+    text-align: center;
+    padding: 4rem 0;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--primary-color);
+}
+
+/* Gallery Grid */
+.gallery-grid,
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.gallery-item,
+.product-item {
+    background: #333;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover,
+.product-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item:nth-child(odd) {
+    background: #444;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    loading: lazy;
+}
+
+/* Table */
+.pricing-table,
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+}
+
+.pricing-table th,
+.table th,
+.pricing-table td,
+.table td {
+    padding: 0.5rem;
+    border: 1px solid var(--primary-color);
+    text-align: left;
+}
+
+.pricing-table th,
+.table th {
+    background-color: var(--primary-color);
+}
+
+/* Form */
+.login-form,
+#job-form {
+    max-width: 400px;
+    margin: 2rem auto;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    background: #333;
+    border: 1px solid var(--primary-color);
+    color: var(--text-color);
+}
+
+.error-msg {
+    color: #ff6b6b;
+    font-size: 0.875rem;
+    display: block;
+}
+
+.password-strength {
+    height: 5px;
+    background: #333;
+    margin-top: 0.25rem;
+    transition: background-color 0.3s;
+}
+
+.strength-weak { background-color: #ff0000; }
+.strength-medium { background-color: #ffaa00; }
+.strength-strong { background-color: #00ff00; }
+
+/* Filter Buttons */
+.filter-buttons {
+    margin-bottom: 1rem;
+}
+
+.filter-btn {
+    background: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.filter-btn.active,
+.filter-btn:hover,
+.filter-btn:focus {
+    background: var(--secondary-color);
+}
+
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 2000;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.nav-arrows {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    pointer-events: none;
+}
+
+.nav-arrows button {
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    pointer-events: all;
+    font-size: 1.5rem;
+}
+
+/* Modal Styles for Jobs (Gray and Fitting) */
+.modal-content {
+    background-color: #333;
+    color: var(--text-color);
+    border: 1px solid var(--primary-color);
+}
+
+.modal-header {
+    background-color: var(--primary-color);
+    border-bottom: 1px solid var(--header-footer-color);
+    color: var(--text-color);
+}
+
+.modal-title {
+    color: var(--text-color);
+}
+
+.modal-body {
+    background-color: #333;
+    color: var(--text-color);
+}
+
+.modal-footer {
+    background-color: #333;
+    border-top: 1px solid var(--primary-color);
+}
+
+.modal-footer .btn {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: 1px solid var(--primary-color);
+}
+
+.modal-footer .btn:hover {
+    background-color: var(--primary-color);
+}
+
+.btn-close {
+    filter: invert(1);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--header-footer-color);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.gallery-item,
+.product-item {
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+
+    .nav-menu li {
+        margin: 0.5rem 0;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .gallery-grid,
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    body {
+        font-size: 14px;
+    }
+}
